@@ -319,15 +319,31 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================
     const donateModal = document.getElementById('donateModal');
     const donateBtn = document.getElementById('donateBtn');
+    const donateBtnMobile = document.getElementById('donateBtnMobile');
     const closeModal = document.getElementById('closeModal');
+
+    const openDonateModal = (e) => {
+        e.preventDefault();
+        donateModal.classList.add('show');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        
+        // Auto-close mobile menu if open
+        if (navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            const icon = mobileToggle.querySelector('i');
+            if (icon) {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        }
+    };
 
     // Open Modal
     if (donateBtn) {
-        donateBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            donateModal.classList.add('show');
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
-        });
+        donateBtn.addEventListener('click', openDonateModal);
+    }
+    if (donateBtnMobile) {
+        donateBtnMobile.addEventListener('click', openDonateModal);
     }
 
     // Close Modal via Button
