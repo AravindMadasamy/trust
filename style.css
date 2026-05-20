@@ -1204,6 +1204,17 @@ textarea.form-control {
     grid-template-columns: 1fr;
   }
   
+  .network-visual {
+    overflow-x: auto;
+    padding: 2rem 1rem;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .tree-diagram {
+    min-width: 550px; /* Prevents tree from breaking layout, enables scroll */
+    margin: 0 auto;
+  }
+  
   .vm-card {
     padding: 2.5rem;
   }
@@ -1224,6 +1235,26 @@ textarea.form-control {
   .contact-form {
     padding: 2rem;
   }
+
+  /* Modal Mobile Fixes */
+  .modal-content {
+    padding: 2rem 1.5rem;
+    width: 95%;
+  }
+
+  .account-table td {
+    display: block;
+    width: 100% !important;
+  }
+
+  .account-table td:first-child {
+    border-bottom: none;
+    padding-bottom: 0.2rem;
+  }
+
+  .account-table td:last-child {
+    padding-top: 0;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1237,5 +1268,11 @@ textarea.form-control {
   
   .hero-subtitle {
     font-size: 1.1rem;
+  }
+
+  .tree-diagram {
+    min-width: 450px;
+    transform: scale(0.9);
+    transform-origin: left top;
   }
 }
